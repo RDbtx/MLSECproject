@@ -7,7 +7,7 @@ Goal: **Re-evaluate 5 RobustBench CIFAR-10 (L∞) models with AutoAttack** on a 
 
 ---
 
-## 0) Decide the experiment spec (write this down first)
+## 0) Experiment spec 
 - [ ] **Pick 5 models** from RobustBench: dataset=`cifar10`, threat_model=`Linf`
 - [ ] Prefer a mix of strong + medium models (so ranking can change)
 - [ ] Choose **subset size**: `n_examples ∈ {100, 200}`
@@ -15,7 +15,7 @@ Goal: **Re-evaluate 5 RobustBench CIFAR-10 (L∞) models with AutoAttack** on a 
 - [ ] Choose batch size `bs` (example): 50 (adjust to GPU memory)
 - [ ] Fix random seed(s) and record hardware + software versions
 
-Deliverables you should plan to produce:
+Deliverables to produce:
 - [ ] Table: robust accuracy for each model at each ε
 - [ ] Plot(s): robust accuracy vs ε (lines per model)
 - [ ] Ranking analysis: ranks per ε + rank correlation / rank flips
@@ -24,7 +24,6 @@ Deliverables you should plan to produce:
 ---
 
 ## 1) Environment setup
-- [ ] Create a clean environment (venv/conda)
 - [ ] Install dependencies
   - [ ] `torch` (CUDA build if available)
   - [ ] `robustbench`
@@ -42,91 +41,76 @@ Sanity checks:
 
 ---
 
-## 2) Repository / folder structure
-- [ ] Create a small repo/folder, e.g.
-  - [ ] `src/`
-  - [ ] `results/`
-  - [ ] `figures/`
-  - [ ] `README.md`
-- [ ] Add a `config.py` or `config.yaml` (models, eps_list, subset size, bs, seed)
+## 2) Implement the evaluation script
+Create a main script that:
 
----
-
-## 3) Implement the evaluation script
-Create a script (e.g., `src/run_autoattack_sweep.py`) that:
-
-### 3.1 Load data (RobustBench helper)
+### 2.1 Load data (RobustBench helper)
 - [ ] Load CIFAR-10 test set subset using RobustBench utilities
 - [ ] Move tensors to `device` (`cuda` if available)
 - [ ] Store the chosen indices (for reproducibility)
   - [ ] Save indices to `results/subset_indices.npy`
 
-### 3.2 Load 5 models (RobustBench)
+### 2.2 Load 5 models (RobustBench)
 - [ ] For each model name:
   - [ ] `load_model(model_name=..., dataset="cifar10", threat_model="Linf")`
   - [ ] `model.eval()` and move to device
   - [ ] (optional) run a clean accuracy check on the subset
 
-### 3.3 Run AutoAttack for each ε
+### 2.3 Run AutoAttack for each ε
 - [ ] For each model and each ε:
   - [ ] Instantiate `AutoAttack(model, norm="Linf", eps=eps, version="standard")`
   - [ ] Run: `run_standard_evaluation(x, y, bs=bs)`
   - [ ] Compute robust accuracy on the returned adversarial examples
   - [ ] Save results in a structured format (dict → CSV/JSON)
-
-**Tip:** Save intermediate results after each ε so you don’t lose work if something crashes.
-
----
-
-## 4) Save results cleanly
+  
+--- 
+## 3) Save results 
 - [ ] Save a **CSV**: rows = models, columns = eps, values = robust accuracy
-  - [ ] `results/robust_accuracy.csv`
+ 
 - [ ] Save a **JSON** with metadata:
   - [ ] model names, eps list, subset size, batch size, seed
   - [ ] torch/robustbench/autoattack versions
-  - [ ] device info (GPU model if any)
-  - [ ] `results/metadata.json`
+  - [ ] device info
 
 ---
 
-## 5) Analysis: ranking vs ε
-Create an analysis notebook or script (e.g., `src/analyze_rankings.py`) that:
 
-### 5.1 Rankings per ε
+## 4) Analysis: ranking vs ε
+Create an analysis notebook or script that:
+
+### 4.1 Rankings per ε
 - [ ] For each ε:
   - [ ] Rank models by robust accuracy (descending)
   - [ ] Save ranking table: `results/rankings.csv`
 
-### 5.2 Quantify rank stability
-Pick at least one:
+### 4.2 Quantify rank stability
 - [ ] **Spearman rank correlation** between rankings at εᵢ and εⱼ
 - [ ] **Kendall τ** correlation (optional alternative)
 - [ ] Count **rank flips** between adjacent ε values
 - [ ] Compute “average rank” across eps and compare to per-ε ranks
 
-### 5.3 Visualizations
+### 4.3 Visualizations
 - [ ] Plot: robust accuracy vs ε (one line per model) → `figures/acc_vs_eps.png`
 - [ ] Plot: rank position vs ε (optional) → `figures/rank_vs_eps.png`
 - [ ] (optional) Heatmap: models × ε with robust accuracy
 
 ---
 
-
-## 6) Reproducibility checklist (don’t skip)
+## 5) Reproducibility checklist 
 - [ ] Fix and log random seeds
 - [ ] Save subset indices
 - [ ] Log library versions + GPU/CPU info
 - [ ] Commit config + scripts
-- [ ] Make sure results can be regenerated with **one command**
+- [ ] Make sure results can be regenerated 
 
 ---
 
 
-## 7) Optional improvements
+## 6) Optional improvements
 - [ ] Repeat with a different random subset (e.g., 3 runs) and show variability
 - [ ] Add confidence intervals via bootstrapping on the subset
-- [ ] Compare “standard” vs another AutoAttack version (if allowed)
-- [ ] Extend ε grid slightly (within reason)
+- [ ] Compare “standard” vs another AutoAttack version (if feasible for a "time" perspective)
+- [ ] Extend ε grid slightly 
 
 ---
 
