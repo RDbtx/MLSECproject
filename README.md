@@ -111,7 +111,27 @@ Pick at least one:
 
 ---
 
-## 6) Write the report (short and clear)
+
+## 6) Reproducibility checklist (don’t skip)
+- [ ] Fix and log random seeds
+- [ ] Save subset indices
+- [ ] Log library versions + GPU/CPU info
+- [ ] Commit config + scripts
+- [ ] Make sure results can be regenerated with **one command**
+
+---
+
+
+## 7) Optional improvements
+- [ ] Repeat with a different random subset (e.g., 3 runs) and show variability
+- [ ] Add confidence intervals via bootstrapping on the subset
+- [ ] Compare “standard” vs another AutoAttack version (if allowed)
+- [ ] Extend ε grid slightly (within reason)
+
+---
+
+
+## 8) Write the report
 Structure suggestion:
 - [ ] **Setup**: models, dataset, subset size, ε sweep, AutoAttack version/config
 - [ ] **Method**: how evaluation was run, device/batch size, reproducibility choices
@@ -122,26 +142,4 @@ Structure suggestion:
   - [ ] Limitations: small subset, runtime constraints, randomness (if any)
 - [ ] **Conclusion**: main takeaway on “ranking stability” across ε
 
----
 
-## 7) Reproducibility checklist (don’t skip)
-- [ ] Fix and log random seeds
-- [ ] Save subset indices
-- [ ] Log library versions + GPU/CPU info
-- [ ] Commit config + scripts
-- [ ] Make sure results can be regenerated with **one command**
-
----
-
-## 8) Optional improvements
-- [ ] Repeat with a different random subset (e.g., 3 runs) and show variability
-- [ ] Add confidence intervals via bootstrapping on the subset
-- [ ] Compare “standard” vs another AutoAttack version (if allowed)
-- [ ] Extend ε grid slightly (within reason)
-
----
-
-## Command checklist (example)
-- [ ] `python src/run_autoattack_sweep.py --config config.yaml`
-- [ ] `python src/analyze_rankings.py --in results/robust_accuracy.csv`
-- [ ] Check `figures/` outputs and final tables
