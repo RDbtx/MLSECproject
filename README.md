@@ -1,7 +1,7 @@
 # MLSECproject
 Repo for Machine Learning Security exam project
 
-# Project 1 — To‑Do Checklist (RobustBench + AutoAttack)
+## Project 1 — To‑Do Checklist (RobustBench + AutoAttack)
 
 Goal: **Re-evaluate 5 RobustBench CIFAR-10 (L∞) models with AutoAttack** on a **100–200 image subset**, sweeping **ε**, and study how the **ranking** changes with ε.
 
