@@ -33,11 +33,8 @@ Deliverables to produce:
 
 Example (pip):
 - [ ] `pip install torch torchvision torchaudio` (choose the right CUDA/CPU wheel)
-- [ ] `pip install robustbench autoattack numpy pandas matplotlib scipy`
-
-Sanity checks:
-- [ ] `python -c "import torch; print(torch.cuda.is_available())"`
-- [ ] `python -c "import robustbench, autoattack; print('ok')"`
+- [ ] `pip install robustbench numpy pandas matplotlib scipy`
+- [ ] install autoattack from its repo `pip install git+https://github.com/fra31/auto-attack`
 
 ---
 
