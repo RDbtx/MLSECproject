@@ -95,9 +95,11 @@ def autoattack_models(models: dict, x_test_cpu, y_test_cpu, batch_size: int, mod
     return results
 
 
-def compute_autoattacks(models: list, samples: int = 200, seeds: int = 0, batch_size: int = 50, mode: str = "standard",
+def compute_autoattacks(models: dict, samples: int = 200, seeds: int = 0, batch_size: int = 50, mode: str = "standard",
                         verbose: bool = True, out_file_name: str = "results") -> dict:
-    models = load_models(models)
+
+    model_names = [name for name in models.keys()]
+    models = load_models(model_names)
     x_test, y_test = load_data(dataset_samples=samples, seed=seeds, batch_size=batch_size)
     results = autoattack_models(
         models,

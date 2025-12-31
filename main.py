@@ -11,16 +11,13 @@ robust_bench_models = {
 }
 
 if __name__ == "__main__":
-
-    model_names = robust_bench_models.keys()
-
-    """results = compute_autoattacks(
-        models=model_names
+    compute_autoattacks(
+        models=robust_bench_models,
         samples=150,
         seeds=0,
         batch_size=50,
-        mode="fast"
+        mode="fast",
         out_file_name="results"
-    )"""
+    )
 
     make_all_plots("results.csv", rb_acc=robust_bench_models)

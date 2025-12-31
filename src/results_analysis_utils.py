@@ -134,7 +134,7 @@ def make_all_plots(result_csv_filename="results.csv", rb_acc=None, rb_eps="8/255
             rb_eps=rb_eps
         )
         plot_rb_vs_ours_at_eps(
-            df_acc, rb_acc, os.path.join(out_dir, f"{name}rb_vs_ours.png"),
+            df_acc, rb_acc, os.path.join(out_dir, f"{name}_rb_vs_ours.png"),
             rb_eps=rb_eps
         )
     else:
