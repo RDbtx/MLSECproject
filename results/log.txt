@@ -1,0 +1,389 @@
+"/Volumes/HDD Esterna/Progetti/PyCharm_Projects/MLSECproject/.venv/bin/python" /Volumes/HDD Esterna/Progetti/PyCharm_Projects/MLSECproject/main.py
+/Volumes/HDD Esterna/Progetti/PyCharm_Projects/MLSECproject/.venv/lib/python3.13/site-packages/robustbench/loaders.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+
+---- LOADING MODELS ----
+Loading Peng2023Robust...
+Loading Rebuffi2021Fixing_70_16_cutmix_ddpm...
+Loading Wang2020Improving...
+Loading Rice2020Overfitting...
+Loading Chen2024Data_WRN_34_20...
+Models loaded!
+
+---- LOADING DATA ----
+Loading CIFAR10 dataset...
+Generating Subset with:
+ - samples: 150
+ - seed: 0
+ - batch_size: 50
+/Volumes/HDD Esterna/Progetti/PyCharm_Projects/MLSECproject/.venv/lib/python3.13/site-packages/robustbench/loaders.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/Volumes/HDD Esterna/Progetti/PyCharm_Projects/MLSECproject/.venv/lib/python3.13/site-packages/robustbench/loaders.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Dataset loaded on CPU!
+
+---- STARTING AUTOATTACK ----
+
+CURRENT EPSILON: 1/255
+MPS is available for Peng2023Robust
+
+testing Peng2023Robust on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 95.33%
+apgd-ce - 1/3 - 0 out of 50 successfully perturbed
+apgd-ce - 2/3 - 0 out of 50 successfully perturbed
+apgd-ce - 3/3 - 1 out of 43 successfully perturbed
+robust accuracy after APGD-CE: 94.67% (total time 3606.0 s)
+max Linf perturbation: 0.00392, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 94.67%
+eps= 1/255  Peng2023Robust: 0.947
+elapsed time for Peng2023Robust: 01:00:20
+MPS is available for Rebuffi2021Fixing_70_16_cutmix_ddpm
+
+testing Rebuffi2021Fixing_70_16_cutmix_ddpm on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 90.00%
+apgd-ce - 1/3 - 1 out of 50 successfully perturbed
+apgd-ce - 2/3 - 2 out of 50 successfully perturbed
+apgd-ce - 3/3 - 1 out of 35 successfully perturbed
+robust accuracy after APGD-CE: 87.33% (total time 2151.1 s)
+max Linf perturbation: 0.00392, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 87.33%
+eps= 1/255  Rebuffi2021Fixing_70_16_cutmix_ddpm: 0.873
+elapsed time for Rebuffi2021Fixing_70_16_cutmix_ddpm: 00:35:59
+MPS is available for Wang2020Improving
+
+testing Wang2020Improving on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 88.67%
+apgd-ce - 1/3 - 2 out of 50 successfully perturbed
+apgd-ce - 2/3 - 2 out of 50 successfully perturbed
+apgd-ce - 3/3 - 1 out of 33 successfully perturbed
+robust accuracy after APGD-CE: 85.33% (total time 256.1 s)
+max Linf perturbation: 0.00392, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 85.33%
+eps= 1/255  Wang2020Improving: 0.853
+elapsed time for Wang2020Improving: 00:04:17
+MPS is available for Rice2020Overfitting
+
+testing Rice2020Overfitting on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 84.67%
+apgd-ce - 1/3 - 2 out of 50 successfully perturbed
+apgd-ce - 2/3 - 2 out of 50 successfully perturbed
+apgd-ce - 3/3 - 0 out of 27 successfully perturbed
+robust accuracy after APGD-CE: 82.00% (total time 1161.5 s)
+max Linf perturbation: 0.00392, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 82.00%
+eps= 1/255  Rice2020Overfitting: 0.820
+elapsed time for Rice2020Overfitting: 00:19:26
+MPS is available for Chen2024Data_WRN_34_20
+
+testing Chen2024Data_WRN_34_20 on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 85.33%
+apgd-ce - 1/3 - 2 out of 50 successfully perturbed
+apgd-ce - 2/3 - 2 out of 50 successfully perturbed
+apgd-ce - 3/3 - 0 out of 28 successfully perturbed
+robust accuracy after APGD-CE: 82.67% (total time 1168.2 s)
+max Linf perturbation: 0.00392, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 82.67%
+eps= 1/255  Chen2024Data_WRN_34_20: 0.827
+elapsed time for Chen2024Data_WRN_34_20: 00:19:33
+
+CURRENT EPSILON: 4/255
+MPS is available for Peng2023Robust
+
+testing Peng2023Robust on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 95.33%
+apgd-ce - 1/3 - 3 out of 50 successfully perturbed
+apgd-ce - 2/3 - 5 out of 50 successfully perturbed
+apgd-ce - 3/3 - 3 out of 43 successfully perturbed
+robust accuracy after APGD-CE: 88.00% (total time 3395.2 s)
+max Linf perturbation: 0.01569, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 88.00%
+eps= 4/255  Peng2023Robust: 0.880
+elapsed time for Peng2023Robust: 00:56:48
+MPS is available for Rebuffi2021Fixing_70_16_cutmix_ddpm
+
+testing Rebuffi2021Fixing_70_16_cutmix_ddpm on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 90.00%
+apgd-ce - 1/3 - 4 out of 50 successfully perturbed
+apgd-ce - 2/3 - 4 out of 50 successfully perturbed
+apgd-ce - 3/3 - 5 out of 35 successfully perturbed
+robust accuracy after APGD-CE: 81.33% (total time 2023.7 s)
+max Linf perturbation: 0.01569, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 81.33%
+eps= 4/255  Rebuffi2021Fixing_70_16_cutmix_ddpm: 0.813
+elapsed time for Rebuffi2021Fixing_70_16_cutmix_ddpm: 00:33:52
+MPS is available for Wang2020Improving
+
+testing Wang2020Improving on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 88.67%
+apgd-ce - 1/3 - 3 out of 50 successfully perturbed
+apgd-ce - 2/3 - 7 out of 50 successfully perturbed
+apgd-ce - 3/3 - 3 out of 33 successfully perturbed
+robust accuracy after APGD-CE: 80.00% (total time 244.3 s)
+max Linf perturbation: 0.01569, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 80.00%
+eps= 4/255  Wang2020Improving: 0.800
+elapsed time for Wang2020Improving: 00:04:05
+MPS is available for Rice2020Overfitting
+
+testing Rice2020Overfitting on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 84.67%
+apgd-ce - 1/3 - 6 out of 50 successfully perturbed
+apgd-ce - 2/3 - 9 out of 50 successfully perturbed
+apgd-ce - 3/3 - 3 out of 27 successfully perturbed
+robust accuracy after APGD-CE: 72.67% (total time 1056.5 s)
+max Linf perturbation: 0.01569, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 72.67%
+eps= 4/255  Rice2020Overfitting: 0.727
+elapsed time for Rice2020Overfitting: 00:17:42
+MPS is available for Chen2024Data_WRN_34_20
+
+testing Chen2024Data_WRN_34_20 on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 85.33%
+apgd-ce - 1/3 - 5 out of 50 successfully perturbed
+apgd-ce - 2/3 - 7 out of 50 successfully perturbed
+apgd-ce - 3/3 - 5 out of 28 successfully perturbed
+robust accuracy after APGD-CE: 74.00% (total time 1077.7 s)
+max Linf perturbation: 0.01569, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 74.00%
+eps= 4/255  Chen2024Data_WRN_34_20: 0.740
+elapsed time for Chen2024Data_WRN_34_20: 00:18:03
+
+CURRENT EPSILON: 8/255
+MPS is available for Peng2023Robust
+
+testing Peng2023Robust on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 95.33%
+apgd-ce - 1/3 - 9 out of 50 successfully perturbed
+apgd-ce - 2/3 - 10 out of 50 successfully perturbed
+apgd-ce - 3/3 - 12 out of 43 successfully perturbed
+robust accuracy after APGD-CE: 74.67% (total time 2989.4 s)
+max Linf perturbation: 0.03137, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 74.67%
+eps= 8/255  Peng2023Robust: 0.747
+elapsed time for Peng2023Robust: 00:50:03
+MPS is available for Rebuffi2021Fixing_70_16_cutmix_ddpm
+
+testing Rebuffi2021Fixing_70_16_cutmix_ddpm on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 90.00%
+apgd-ce - 1/3 - 11 out of 50 successfully perturbed
+apgd-ce - 2/3 - 13 out of 50 successfully perturbed
+apgd-ce - 3/3 - 8 out of 35 successfully perturbed
+robust accuracy after APGD-CE: 68.67% (total time 1788.6 s)
+max Linf perturbation: 0.03137, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 68.67%
+eps= 8/255  Rebuffi2021Fixing_70_16_cutmix_ddpm: 0.687
+elapsed time for Rebuffi2021Fixing_70_16_cutmix_ddpm: 00:29:56
+MPS is available for Wang2020Improving
+
+testing Wang2020Improving on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 88.67%
+apgd-ce - 1/3 - 12 out of 50 successfully perturbed
+apgd-ce - 2/3 - 16 out of 50 successfully perturbed
+apgd-ce - 3/3 - 9 out of 33 successfully perturbed
+robust accuracy after APGD-CE: 64.00% (total time 209.0 s)
+max Linf perturbation: 0.03137, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 64.00%
+eps= 8/255  Wang2020Improving: 0.640
+elapsed time for Wang2020Improving: 00:03:30
+MPS is available for Rice2020Overfitting
+
+testing Rice2020Overfitting on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 84.67%
+apgd-ce - 1/3 - 15 out of 50 successfully perturbed
+apgd-ce - 2/3 - 21 out of 50 successfully perturbed
+apgd-ce - 3/3 - 8 out of 27 successfully perturbed
+robust accuracy after APGD-CE: 55.33% (total time 869.7 s)
+max Linf perturbation: 0.03137, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 55.33%
+eps= 8/255  Rice2020Overfitting: 0.553
+elapsed time for Rice2020Overfitting: 00:14:35
+MPS is available for Chen2024Data_WRN_34_20
+
+testing Chen2024Data_WRN_34_20 on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 85.33%
+apgd-ce - 1/3 - 14 out of 50 successfully perturbed
+apgd-ce - 2/3 - 19 out of 50 successfully perturbed
+apgd-ce - 3/3 - 10 out of 28 successfully perturbed
+robust accuracy after APGD-CE: 56.67% (total time 888.4 s)
+max Linf perturbation: 0.03137, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 56.67%
+eps= 8/255  Chen2024Data_WRN_34_20: 0.567
+elapsed time for Chen2024Data_WRN_34_20: 00:14:53
+
+CURRENT EPSILON: 12/255
+MPS is available for Peng2023Robust
+
+testing Peng2023Robust on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 95.33%
+apgd-ce - 1/3 - 20 out of 50 successfully perturbed
+apgd-ce - 2/3 - 25 out of 50 successfully perturbed
+apgd-ce - 3/3 - 24 out of 43 successfully perturbed
+robust accuracy after APGD-CE: 49.33% (total time 2246.9 s)
+max Linf perturbation: 0.04706, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 49.33%
+eps=12/255  Peng2023Robust: 0.493
+elapsed time for Peng2023Robust: 00:37:40
+MPS is available for Rebuffi2021Fixing_70_16_cutmix_ddpm
+
+testing Rebuffi2021Fixing_70_16_cutmix_ddpm on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 90.00%
+apgd-ce - 1/3 - 19 out of 50 successfully perturbed
+apgd-ce - 2/3 - 25 out of 50 successfully perturbed
+apgd-ce - 3/3 - 18 out of 35 successfully perturbed
+robust accuracy after APGD-CE: 48.67% (total time 1397.0 s)
+max Linf perturbation: 0.04706, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 48.67%
+eps=12/255  Rebuffi2021Fixing_70_16_cutmix_ddpm: 0.487
+elapsed time for Rebuffi2021Fixing_70_16_cutmix_ddpm: 00:23:25
+MPS is available for Wang2020Improving
+
+testing Wang2020Improving on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 88.67%
+apgd-ce - 1/3 - 25 out of 50 successfully perturbed
+apgd-ce - 2/3 - 33 out of 50 successfully perturbed
+apgd-ce - 3/3 - 21 out of 33 successfully perturbed
+robust accuracy after APGD-CE: 36.00% (total time 144.9 s)
+max Linf perturbation: 0.04706, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 36.00%
+eps=12/255  Wang2020Improving: 0.360
+elapsed time for Wang2020Improving: 00:02:25
+MPS is available for Rice2020Overfitting
+
+testing Rice2020Overfitting on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 84.67%
+apgd-ce - 1/3 - 32 out of 50 successfully perturbed
+apgd-ce - 2/3 - 34 out of 50 successfully perturbed
+apgd-ce - 3/3 - 16 out of 27 successfully perturbed
+robust accuracy after APGD-CE: 30.00% (total time 582.1 s)
+max Linf perturbation: 0.04706, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 30.00%
+eps=12/255  Rice2020Overfitting: 0.300
+elapsed time for Rice2020Overfitting: 00:09:47
+MPS is available for Chen2024Data_WRN_34_20
+
+testing Chen2024Data_WRN_34_20 on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 85.33%
+apgd-ce - 1/3 - 26 out of 50 successfully perturbed
+apgd-ce - 2/3 - 31 out of 50 successfully perturbed
+apgd-ce - 3/3 - 15 out of 28 successfully perturbed
+robust accuracy after APGD-CE: 37.33% (total time 680.4 s)
+max Linf perturbation: 0.04706, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 37.33%
+eps=12/255  Chen2024Data_WRN_34_20: 0.373
+elapsed time for Chen2024Data_WRN_34_20: 00:11:25
+
+CURRENT EPSILON: 16/255
+MPS is available for Peng2023Robust
+
+testing Peng2023Robust on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 95.33%
+apgd-ce - 1/3 - 30 out of 50 successfully perturbed
+apgd-ce - 2/3 - 33 out of 50 successfully perturbed
+apgd-ce - 3/3 - 33 out of 43 successfully perturbed
+robust accuracy after APGD-CE: 31.33% (total time 1701.2 s)
+max Linf perturbation: 0.06275, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 31.33%
+eps=16/255  Peng2023Robust: 0.313
+elapsed time for Peng2023Robust: 00:28:35
+MPS is available for Rebuffi2021Fixing_70_16_cutmix_ddpm
+
+testing Rebuffi2021Fixing_70_16_cutmix_ddpm on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 90.00%
+apgd-ce - 1/3 - 33 out of 50 successfully perturbed
+apgd-ce - 2/3 - 33 out of 50 successfully perturbed
+apgd-ce - 3/3 - 25 out of 35 successfully perturbed
+robust accuracy after APGD-CE: 29.33% (total time 1037.5 s)
+max Linf perturbation: 0.06275, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 29.33%
+eps=16/255  Rebuffi2021Fixing_70_16_cutmix_ddpm: 0.293
+elapsed time for Rebuffi2021Fixing_70_16_cutmix_ddpm: 00:17:25
+MPS is available for Wang2020Improving
+
+testing Wang2020Improving on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 88.67%
+apgd-ce - 1/3 - 39 out of 50 successfully perturbed
+apgd-ce - 2/3 - 42 out of 50 successfully perturbed
+apgd-ce - 3/3 - 25 out of 33 successfully perturbed
+robust accuracy after APGD-CE: 18.00% (total time 101.8 s)
+max Linf perturbation: 0.06275, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 18.00%
+eps=16/255  Wang2020Improving: 0.180
+elapsed time for Wang2020Improving: 00:01:43
+MPS is available for Rice2020Overfitting
+
+testing Rice2020Overfitting on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 84.67%
+apgd-ce - 1/3 - 36 out of 50 successfully perturbed
+apgd-ce - 2/3 - 40 out of 50 successfully perturbed
+apgd-ce - 3/3 - 21 out of 27 successfully perturbed
+robust accuracy after APGD-CE: 20.00% (total time 473.5 s)
+max Linf perturbation: 0.06275, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 20.00%
+eps=16/255  Rice2020Overfitting: 0.200
+elapsed time for Rice2020Overfitting: 00:07:59
+MPS is available for Chen2024Data_WRN_34_20
+
+testing Chen2024Data_WRN_34_20 on mps
+Fast mode selected [APGD-CE only]!
+using custom version including apgd-ce.
+initial accuracy: 85.33%
+apgd-ce - 1/3 - 34 out of 50 successfully perturbed
+apgd-ce - 2/3 - 37 out of 50 successfully perturbed
+apgd-ce - 3/3 - 19 out of 28 successfully perturbed
+robust accuracy after APGD-CE: 25.33% (total time 537.7 s)
+max Linf perturbation: 0.06275, nan in tensor: 0, max: 1.00000, min: 0.00000
+robust accuracy: 25.33%
+eps=16/255  Chen2024Data_WRN_34_20: 0.253
+elapsed time for Chen2024Data_WRN_34_20: 00:09:03
+JSON saved: /Volumes/HDD Esterna/Progetti/PyCharm_Projects/MLSECproject/results/results.json
+CSV saved:  /Volumes/HDD Esterna/Progetti/PyCharm_Projects/MLSECproject/results/results.csv
+
+Process finished with exit code 0

@@ -21,7 +21,6 @@ def results_to_dataframe(results: dict) -> pd.DataFrame:
     df = df[sorted(df.columns, key=eps_num)]
     return df
 
-
 def save_results_json(results: dict, result_dir: str = "./results") -> None:
     filename = "results.json"
     outpath = os.path.join(result_dir, filename)
