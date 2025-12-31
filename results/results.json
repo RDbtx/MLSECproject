@@ -1,0 +1,187 @@
+{
+  "1/255": {
+    "Peng2023Robust": {
+      "robust_acc": 0.9466666579246521,
+      "device": "mps",
+      "time_s": 3620.309931374999,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Rebuffi2021Fixing_70_16_cutmix_ddpm": {
+      "robust_acc": 0.8733333349227905,
+      "device": "mps",
+      "time_s": 2159.5885846660094,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Wang2020Improving": {
+      "robust_acc": 0.8533333539962769,
+      "device": "mps",
+      "time_s": 257.3093083749991,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Rice2020Overfitting": {
+      "robust_acc": 0.8199999928474426,
+      "device": "mps",
+      "time_s": 1166.9496044999978,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Chen2024Data_WRN_34_20": {
+      "robust_acc": 0.8266666531562805,
+      "device": "mps",
+      "time_s": 1173.6870747089997,
+      "mode": "fast",
+      "bs": 50
+    }
+  },
+  "4/255": {
+    "Peng2023Robust": {
+      "robust_acc": 0.8799999952316284,
+      "device": "mps",
+      "time_s": 3408.970935834004,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Rebuffi2021Fixing_70_16_cutmix_ddpm": {
+      "robust_acc": 0.8133333325386047,
+      "device": "mps",
+      "time_s": 2032.1750261660054,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Wang2020Improving": {
+      "robust_acc": 0.800000011920929,
+      "device": "mps",
+      "time_s": 245.485667749992,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Rice2020Overfitting": {
+      "robust_acc": 0.7266666889190674,
+      "device": "mps",
+      "time_s": 1062.0577283750026,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Chen2024Data_WRN_34_20": {
+      "robust_acc": 0.7400000095367432,
+      "device": "mps",
+      "time_s": 1083.240652624998,
+      "mode": "fast",
+      "bs": 50
+    }
+  },
+  "8/255": {
+    "Peng2023Robust": {
+      "robust_acc": 0.746666669845581,
+      "device": "mps",
+      "time_s": 3003.1735831660044,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Rebuffi2021Fixing_70_16_cutmix_ddpm": {
+      "robust_acc": 0.6866666674613953,
+      "device": "mps",
+      "time_s": 1796.9183567919972,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Wang2020Improving": {
+      "robust_acc": 0.6399999856948853,
+      "device": "mps",
+      "time_s": 210.20716270900448,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Rice2020Overfitting": {
+      "robust_acc": 0.5533333420753479,
+      "device": "mps",
+      "time_s": 875.2272211250092,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Chen2024Data_WRN_34_20": {
+      "robust_acc": 0.5666666626930237,
+      "device": "mps",
+      "time_s": 893.9946449169947,
+      "mode": "fast",
+      "bs": 50
+    }
+  },
+  "12/255": {
+    "Peng2023Robust": {
+      "robust_acc": 0.4933333396911621,
+      "device": "mps",
+      "time_s": 2260.7455430410046,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Rebuffi2021Fixing_70_16_cutmix_ddpm": {
+      "robust_acc": 0.4866666793823242,
+      "device": "mps",
+      "time_s": 1405.395422207992,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Wang2020Improving": {
+      "robust_acc": 0.36000001430511475,
+      "device": "mps",
+      "time_s": 145.95907574999728,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Rice2020Overfitting": {
+      "robust_acc": 0.30000001192092896,
+      "device": "mps",
+      "time_s": 587.6542595419887,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Chen2024Data_WRN_34_20": {
+      "robust_acc": 0.3733333349227905,
+      "device": "mps",
+      "time_s": 685.9526775419945,
+      "mode": "fast",
+      "bs": 50
+    }
+  },
+  "16/255": {
+    "Peng2023Robust": {
+      "robust_acc": 0.31333333253860474,
+      "device": "mps",
+      "time_s": 1715.0151921250072,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Rebuffi2021Fixing_70_16_cutmix_ddpm": {
+      "robust_acc": 0.2933333218097687,
+      "device": "mps",
+      "time_s": 1045.9008649999887,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Wang2020Improving": {
+      "robust_acc": 0.18000000715255737,
+      "device": "mps",
+      "time_s": 103.00864074999117,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Rice2020Overfitting": {
+      "robust_acc": 0.20000000298023224,
+      "device": "mps",
+      "time_s": 479.05479354198906,
+      "mode": "fast",
+      "bs": 50
+    },
+    "Chen2024Data_WRN_34_20": {
+      "robust_acc": 0.25333333015441895,
+      "device": "mps",
+      "time_s": 543.2721377080015,
+      "mode": "fast",
+      "bs": 50
+    }
+  }
+}
