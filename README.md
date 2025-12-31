@@ -76,17 +76,12 @@ Create an analysis notebook or script that:
   - [ ] Rank models by robust accuracy (descending)
   - [ ] Save ranking table: `results/rankings.csv`
 
-### 4.2 Quantify rank stability
-- [ ] **Spearman rank correlation** between rankings at εᵢ and εⱼ
-- [ ] **Kendall τ** correlation (optional alternative)
-- [ ] Count **rank flips** between adjacent ε values
-- [ ] Compute “average rank” across eps and compare to per-ε ranks
-
 ### 4.3 Visualizations
-- [ ] Plot: robust accuracy vs ε (one line per model) → `figures/acc_vs_eps.png`
-- [ ] Plot: rank position vs ε (optional) → `figures/rank_vs_eps.png`
-- [ ] (optional) Heatmap: models × ε with robust accuracy
-
+- [ ] Plot: robust accuracy vs ε (one line per model) → `plots/acc_vs_eps.png`
+- [ ] Plot: rank position vs ε (optional) → `plots/rank_vs_eps.png`
+- [ ] Plot: Heatmap: models × ε with robust accuracy
+- [ ] Plot: robust accuracy vs ε with RobustBench computed accuracy → `plots/results_acc_vs_eps_with_rb.png`
+- [ ] Plot: 8/255 robust accuracy vs RobustBench Robust accuracy
 ---
 
 
