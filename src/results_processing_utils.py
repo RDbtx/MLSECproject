@@ -21,8 +21,9 @@ def results_to_dataframe(results: dict) -> pd.DataFrame:
     df = df[sorted(df.columns, key=eps_num)]
     return df
 
-def save_results_json(results: dict, result_dir: str = "./results") -> None:
-    filename = "results.json"
+
+def save_results_json(results: dict, filename: str, result_dir: str = "./results") -> None:
+    filename = f"{filename}.json"
     outpath = os.path.join(result_dir, filename)
 
     with open(outpath, "w") as f:
@@ -31,8 +32,8 @@ def save_results_json(results: dict, result_dir: str = "./results") -> None:
     print(f"JSON saved: {os.path.abspath(outpath)}")
 
 
-def save_results_csv(results: dict, result_dir: str = "./results") -> None:
-    filename = "results.csv"
+def save_results_csv(results: dict, filename: str, result_dir: str = "./results") -> None:
+    filename = f"{filename}.csv"
     outpath = os.path.join(result_dir, filename)
 
     df = results_to_dataframe(results)
@@ -41,8 +42,8 @@ def save_results_csv(results: dict, result_dir: str = "./results") -> None:
     print(f"CSV saved:  {os.path.abspath(outpath)}")
 
 
-def save_results(results: dict) -> None:
+def save_results(results: dict, filename: str) -> None:
     result_dir = "./results"
     os.makedirs(result_dir, exist_ok=True)
-    save_results_json(results, result_dir=result_dir)
-    save_results_csv(results, result_dir=result_dir)
+    save_results_json(results, filename, result_dir=result_dir)
+    save_results_csv(results, filename, result_dir=result_dir)

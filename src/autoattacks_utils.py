@@ -96,7 +96,7 @@ def autoattack_models(models: dict, x_test_cpu, y_test_cpu, batch_size: int, mod
 
 
 def compute_autoattacks(models: list, samples: int = 200, seeds: int = 0, batch_size: int = 50, mode: str = "standard",
-                        verbose: bool = True) -> dict:
+                        verbose: bool = True, out_file_name: str = "results") -> dict:
     models = load_models(models)
     x_test, y_test = load_data(dataset_samples=samples, seed=seeds, batch_size=batch_size)
     results = autoattack_models(
@@ -108,5 +108,5 @@ def compute_autoattacks(models: list, samples: int = 200, seeds: int = 0, batch_
         verbose=verbose
     )
 
-    save_results(results)
+    save_results(results, out_file_name)
     return results

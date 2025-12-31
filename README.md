@@ -8,12 +8,12 @@ Goal: **Re-evaluate 5 RobustBench CIFAR-10 (L∞) models with AutoAttack** on a 
 ---
 
 ## 0) Experiment spec 
-- [ ] **Pick 5 models** from RobustBench: dataset=`cifar10`, threat_model=`Linf`
-- [ ] Prefer a mix of strong + medium models (so ranking can change)
-- [ ] Choose **subset size**: `n_examples ∈ {100, 200}`
-- [ ] Choose **ε sweep** (example): `{1, 2, 4, 8, 12, 16} / 255`
-- [ ] Choose batch size `bs` (example): 50 (adjust to GPU memory)
-- [ ] Fix random seed(s) and record hardware + software versions
+- [x] **Pick 5 models** from RobustBench: dataset=`cifar10`, threat_model=`Linf`
+- [x] Prefer a mix of strong + medium models (so ranking can change)
+- [x] Choose **subset size**: `n_examples ∈ {100, 200} = 150`
+- [x] Choose **ε sweep** = `[1, 4, 8, 12, 16] / 255`
+- [x] Choose batch size `bs` = 50 
+- [x] Fix random seed = 0 
 
 Deliverables to produce:
 - [ ] Table: robust accuracy for each model at each ε
@@ -24,17 +24,17 @@ Deliverables to produce:
 ---
 
 ## 1) Environment setup
-- [ ] Install dependencies
-  - [ ] `torch` (CUDA build if available)
-  - [ ] `robustbench`
-  - [ ] `autoattack`
-  - [ ] `numpy`, `pandas`, `matplotlib`
-  - [ ] (optional) `scipy` for Spearman correlation
+- [x] Install dependencies
+  - [x] `torch` (CUDA build if available)
+  - [x] `robustbench`
+  - [x] `autoattack`
+  - [x] `numpy`, `pandas`, `matplotlib`
+  - [x] (optional) `scipy` for Spearman correlation
 
 Example (pip):
-- [ ] `pip install torch torchvision torchaudio` (choose the right CUDA/CPU wheel)
-- [ ] `pip install robustbench numpy pandas matplotlib scipy`
-- [ ] install autoattack from its repo `pip install git+https://github.com/fra31/auto-attack`
+- [x] `pip install torch torchvision torchaudio` (choose the right CUDA/CPU wheel)
+- [x] `pip install robustbench numpy pandas matplotlib scipy`
+- [x] install autoattack from its repo `pip install git+https://github.com/fra31/auto-attack`
 
 ---
 
@@ -42,33 +42,29 @@ Example (pip):
 Create a main script that:
 
 ### 2.1 Load data (RobustBench helper)
-- [ ] Load CIFAR-10 test set subset using RobustBench utilities
-- [ ] Move tensors to `device` (`cuda` if available)
-- [ ] Store the chosen indices (for reproducibility)
-  - [ ] Save indices to `results/subset_indices.npy`
+- [x] Load CIFAR-10 test set subset using RobustBench utilities
+- [x] Move tensors to `device` (`cuda` if available)
+- [x] Store the chosen indices (for reproducibility)
+  - [x] Save indices to `results/subset_indices.npy`
 
 ### 2.2 Load 5 models (RobustBench)
-- [ ] For each model name:
-  - [ ] `load_model(model_name=..., dataset="cifar10", threat_model="Linf")`
-  - [ ] `model.eval()` and move to device
-  - [ ] (optional) run a clean accuracy check on the subset
+- [x] For each model name:
+  - [x] `load_model(model_name=..., dataset="cifar10", threat_model="Linf")`
+  - [x] `model.eval()` and move to device
+  - [x] (optional) run a clean accuracy check on the subset
 
 ### 2.3 Run AutoAttack for each ε
-- [ ] For each model and each ε:
-  - [ ] Instantiate `AutoAttack(model, norm="Linf", eps=eps, version="standard")`
-  - [ ] Run: `run_standard_evaluation(x, y, bs=bs)`
-  - [ ] Compute robust accuracy on the returned adversarial examples
-  - [ ] Save results in a structured format (dict → CSV/JSON)
+- [x] For each model and each ε:
+  - [x] Instantiate `AutoAttack(model, norm="Linf", eps=eps, version="standard")`
+  - [x] Run: `run_standard_evaluation(x, y, bs=bs)`
+  - [x] Compute robust accuracy on the returned adversarial examples
+  - [x] Save results in a structured format (dict → CSV/JSON)
   
 --- 
 ## 3) Save results 
-- [ ] Save a **CSV**: rows = models, columns = eps, values = robust accuracy
- 
-- [ ] Save a **JSON** with metadata:
-  - [ ] model names, eps list, subset size, batch size, seed
-  - [ ] torch/robustbench/autoattack versions
-  - [ ] device info
-
+- [x] Save a **CSV**: rows = models, columns = eps, values = robust accuracy
+- [x] Save a **JSON** with metadata:
+  - [x] model names, eps list, subset size, batch size, seed
 ---
 
 
@@ -93,26 +89,8 @@ Create an analysis notebook or script that:
 
 ---
 
-## 5) Reproducibility checklist 
-- [ ] Fix and log random seeds
-- [ ] Save subset indices
-- [ ] Log library versions + GPU/CPU info
-- [ ] Commit config + scripts
-- [ ] Make sure results can be regenerated 
 
----
-
-
-## 6) Optional improvements
-- [ ] Repeat with a different random subset (e.g., 3 runs) and show variability
-- [ ] Add confidence intervals via bootstrapping on the subset
-- [ ] Compare “standard” vs another AutoAttack version (if feasible for a "time" perspective)
-- [ ] Extend ε grid slightly 
-
----
-
-
-## 8) Write the report
+## 5) Write the report
 Structure suggestion:
 - [ ] **Setup**: models, dataset, subset size, ε sweep, AutoAttack version/config
 - [ ] **Method**: how evaluation was run, device/batch size, reproducibility choices

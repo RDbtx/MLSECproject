@@ -1,6 +1,3 @@
-"/Volumes/HDD Esterna/Progetti/PyCharm_Projects/MLSECproject/.venv/bin/python" /Volumes/HDD Esterna/Progetti/PyCharm_Projects/MLSECproject/main.py
-/Volumes/HDD Esterna/Progetti/PyCharm_Projects/MLSECproject/.venv/lib/python3.13/site-packages/robustbench/loaders.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  import pkg_resources
 
 ---- LOADING MODELS ----
 Loading Peng2023Robust...
@@ -16,10 +13,6 @@ Generating Subset with:
  - samples: 150
  - seed: 0
  - batch_size: 50
-/Volumes/HDD Esterna/Progetti/PyCharm_Projects/MLSECproject/.venv/lib/python3.13/site-packages/robustbench/loaders.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  import pkg_resources
-/Volumes/HDD Esterna/Progetti/PyCharm_Projects/MLSECproject/.venv/lib/python3.13/site-packages/robustbench/loaders.py:4: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
-  import pkg_resources
 Dataset loaded on CPU!
 
 ---- STARTING AUTOATTACK ----
