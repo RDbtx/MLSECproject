@@ -195,6 +195,7 @@ def plot_rb_vs_ours_at_eps(df_acc: pd.DataFrame, rb_acc: dict, savepath: str, rb
     plt.legend(fontsize=8)
     plt.tight_layout()
     plt.savefig(savepath, dpi=200)
+    plt.show()
     plt.close()
 
 
