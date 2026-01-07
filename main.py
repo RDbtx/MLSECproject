@@ -3,9 +3,9 @@ from src.autoattacks_utils import compute_autoattacks
 from src.results_analysis_utils import make_all_plots
 
 robust_bench_models = {
-    "Peng2023Robust": 0.7371,
-    "Rebuffi2021Fixing_70_16_cutmix_ddpm": 0.6658,
-    "Wang2020Improving": 0.6041,
+    "Peng2023Robust": 0.7107,
+    "Rebuffi2021Fixing_70_16_cutmix_ddpm": 0.6420,
+    "Wang2020Improving": 0.5629,
     "Rice2020Overfitting": 0.5342,
     "Chen2024Data_WRN_34_20": 0.5809
 }
