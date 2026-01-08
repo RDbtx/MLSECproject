@@ -103,7 +103,6 @@ def autoattack_models(models: dict, x_test_cpu, y_test_cpu, batch_size: int, mod
         eps_key = f"{step}/255"
         results[eps_key] = {}
 
-        # cache x/y per device for this epsilon (avoids repeated transfers)
         x_cache = {}
         y_cache = {}
 
@@ -114,7 +113,7 @@ def autoattack_models(models: dict, x_test_cpu, y_test_cpu, batch_size: int, mod
             model = model.to(dev).eval()
             move_operations_to_device(model, dev)
 
-            # move data once per device
+            # move data on device
             if dev not in x_cache:
                 x_cache[dev] = x_test_cpu.to(dev)
                 y_cache[dev] = y_test_cpu.to(dev)

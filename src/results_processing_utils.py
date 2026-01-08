@@ -3,7 +3,7 @@ import os
 import pandas as pd
 
 
-def results_to_dataframe(results: dict) -> pd.DataFrame:
+def results_to_dataframe(results: dict):
     """
     Convert the nested AutoAttack results dictionary into a Pandas DataFrame.
     The returned DataFrame uses model names as the index and epsilon keys as
@@ -18,19 +18,11 @@ def results_to_dataframe(results: dict) -> pd.DataFrame:
     """
     rows = {}
     for eps_key, model_dict in results.items():
-        for model_name, val in model_dict.items():
-            acc = val["robust_acc"] if isinstance(val, dict) else float(val)
-            rows.setdefault(model_name, {})[eps_key] = acc
+        for model_name, data in model_dict.items():
+            rows.setdefault(model_name, {})[eps_key] = data["robust_acc"]
 
     df = pd.DataFrame.from_dict(rows, orient="index")
-
-    def eps_num(k):
-        try:
-            return int(str(k).split("/")[0])
-        except Exception:
-            return 10 ** 9
-
-    df = df[sorted(df.columns, key=eps_num)]
+    df = df[sorted(df.columns, key=lambda k: int(str(k).split("/")[0]))]
     return df
 
 

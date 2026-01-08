@@ -15,27 +15,25 @@ def eps_value(eps_key: str) -> float:
     - eps: epsilon as a float.
 
     """
-    s = str(eps_key).strip()
-    if "/" in s:
-        a, b = s.split("/", 1)
-        return float(a) / float(b)
-    return float(s)
+    num, den = eps_key.split('/')
+    return float(num) / float(den)
 
 
-def load_acc_csv(csv_path: str = "results.csv") -> pd.DataFrame:
+def generate_x_axis(df_acc: pd.DataFrame) -> np.ndarray:
     """
-    Load a CSV of robust accuracies and sort columns by increasing epsilon.
+    Uses the epsilon values listed in the dataframe to generate the x-axis values
+    of accuracy vs epsilons plots.
 
     Input:
-    - csv_path: path to the CSV file.
-
+    - df_acc: pandas DataFrame containing accuracy values.
     Output:
-    - df: DataFrame with models as index and sorted epsilon columns.
+    - x_axis: x-axis values.
 
     """
-    df = pd.read_csv(csv_path, index_col=0)  # rows=models, cols=eps keys
-    df = df.loc[:, sorted(df.columns, key=eps_value)]
-    return df
+    x_axis = []
+    for eps in df_acc.columns:
+        x_axis.append(eps_value(eps))
+    return np.array(x_axis, dtype=float)
 
 
 def plot_acc_vs_eps(df_acc: pd.DataFrame, savepath: str, title: str = "Robust accuracy vs ε") -> None:
@@ -48,7 +46,7 @@ def plot_acc_vs_eps(df_acc: pd.DataFrame, savepath: str, title: str = "Robust ac
     - title: plot title.
 
     """
-    x = np.array([eps_value(e) for e in df_acc.columns], dtype=float)
+    x = generate_x_axis(df_acc)
 
     plt.figure()
     for m in df_acc.index:
@@ -77,7 +75,7 @@ def plot_rank_vs_eps(df_acc: pd.DataFrame, savepath: str, title: str = "Rank pos
 
     """
     df_rank = df_acc.rank(axis=0, ascending=False, method="average")
-    x = np.array([eps_value(e) for e in df_rank.columns], dtype=float)
+    x = generate_x_axis(df_acc)
 
     plt.figure()
     for m in df_rank.index:
@@ -139,7 +137,7 @@ def plot_acc_vs_eps_with_rb_points(df_acc: pd.DataFrame, rb_acc: dict, savepath:
     - title: plot title.
 
     """
-    x = np.array([eps_value(e) for e in df_acc.columns], dtype=float)
+    x = generate_x_axis(df_acc)
     x_rb = eps_value(rb_eps)
 
     plt.figure()
@@ -226,7 +224,7 @@ def make_all_plots(result_csv_filename: str = "results.csv", rb_acc: dict = None
     name = result_csv_filename.replace(".csv", "")
     os.makedirs(out_dir, exist_ok=True)
 
-    df_acc = load_acc_csv(os.path.join(results_dir, result_csv_filename))
+    df_acc = pd.read_csv(os.path.join(results_dir, result_csv_filename), index_col=0)
 
     if rb_acc:
         plot_acc_vs_eps_with_rb_points(

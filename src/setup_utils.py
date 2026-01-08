@@ -66,8 +66,8 @@ def compute_elapsed_time(start: float, end: float) -> list:
 
     """
     elapsed = end - start
-    hours, remainder = divmod(elapsed, 3600)
-    minutes, seconds = divmod(remainder, 60)
+    hours, resto = elapsed // 3600, (elapsed % 3600)
+    minutes, seconds = resto // 60, resto % 60
     return [int(hours), int(minutes), int(seconds)]
 
 
