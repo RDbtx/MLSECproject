@@ -2,6 +2,8 @@ import json
 from src.autoattacks_utils import compute_autoattacks
 from src.results_analysis_utils import make_all_plots
 
+# RobustBench models to re-evaluate with AutoAttack.
+# Values are the RobustBench reported robust accuracies.
 robust_bench_models = {
     "Peng2023Robust": 0.7107,
     "Rebuffi2021Fixing_70_16_cutmix_ddpm": 0.6420,
@@ -11,13 +13,16 @@ robust_bench_models = {
 }
 
 if __name__ == "__main__":
-    """compute_autoattacks(
+
+    # main AutoAttack analysis
+    compute_autoattacks(
         models=robust_bench_models,
         samples=150,
         seeds=0,
         batch_size=50,
         mode="fast",
         out_file_name="results"
-    )"""
+    )
 
+    # Generate plots from the produced CSV and compare against RobustBench accuracies numbers if specified.
     make_all_plots("results.csv", rb_acc=robust_bench_models)
