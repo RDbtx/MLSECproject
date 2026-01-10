@@ -84,10 +84,11 @@ def compute_results_average(input_files: list, filename: str = "averaged_results
     dataframes = []
 
     for elem in input_files:
-        if filename.endswith(".csv"):
+        if elem.endswith(".csv"):
             df = pd.read_csv(os.path.join(result_dir, elem), index_col=0)
             dataframes.append(df)
-    if len(dataframes) < 0:
+
+    if len(dataframes) == 0:
         print("No csv files found")
         return None
 
