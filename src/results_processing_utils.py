@@ -66,6 +66,41 @@ def save_results_csv(results: dict, filename: str, result_dir: str = "./results"
     print(f"CSV saved:  {os.path.abspath(outpath)}")
 
 
+def compute_results_average(input_files: list, filename: str = "averaged_results.csv"):
+    """
+    This function takes a list of csv files in input and averages them.
+    The resulting csv is then saved in the results' directory.
+
+    Inputs:
+    - input_files: list of csv files to average.
+    - filename: base output filename (without extension).
+
+    Output:
+    - results: averaged results.
+    - None: if no csv files were found inside the input_files list
+
+    """
+    result_dir = "./results"
+    dataframes = []
+
+    for elem in input_files:
+        if filename.endswith(".csv"):
+            df = pd.read_csv(os.path.join(result_dir, elem), index_col=0)
+            dataframes.append(df)
+    if len(dataframes) < 0:
+        print("No csv files found")
+        return None
+
+    avg_df = pd.concat(dataframes, axis=0).groupby(level=0).mean()
+    avg_df = avg_df.reindex(columns=dataframes[0].columns)
+
+    outpath = os.path.join(result_dir, filename)
+    avg_df.to_csv(outpath)
+
+    print(f"CSV saved:  {os.path.abspath(outpath)}")
+    return os.path.abspath(outpath)
+
+
 def save_results(results: dict, filename: str) -> None:
     """
     Save AutoAttack results in both JSON and CSV formats.

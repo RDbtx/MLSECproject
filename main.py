@@ -1,6 +1,7 @@
 import json
 from src.autoattacks_utils import compute_autoattacks
 from src.results_analysis_utils import make_all_plots
+from src.results_processing_utils import compute_results_average
 
 # RobustBench models to re-evaluate with AutoAttack.
 # Values are the RobustBench reported robust accuracies.
@@ -13,16 +14,18 @@ robust_bench_models = {
 }
 
 if __name__ == "__main__":
-
+    """
     # main AutoAttack analysis
     compute_autoattacks(
         models=robust_bench_models,
         samples=150,
         seeds=0,
         batch_size=50,
-        mode="fast",
-        out_file_name="results"
+        mode="fast targeted",
+        out_file_name="targeted_results"
     )
-
+    """
+    csvs = ["untargeted_results.csv", "targeted_results.csv"]
+    compute_results_average(csvs, "targeted_untargeted_averaged.csv")
     # Generate plots from the produced CSV and compare against RobustBench accuracies numbers if specified.
-    make_all_plots("results.csv", rb_acc=robust_bench_models)
+    make_all_plots("targeted_untargeted_averaged.csv", rb_acc=robust_bench_models)

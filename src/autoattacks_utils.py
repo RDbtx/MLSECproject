@@ -31,10 +31,15 @@ def robust_acc_autoattack(model, x, y, eps: float, device: str, mode: str = "sta
     - robust_acc: robust accuracy measured.
 
     """
-    if mode == "fast":
+    if mode == "fast untargeted":
         print("Fast mode selected [APGD-CE only]!")
         adversary = AutoAttack(model, norm="Linf", eps=eps, version="custom", device=device, verbose=verbose)
         adversary.attacks_to_run = ["apgd-ce"]
+
+    elif mode == "fast targeted":
+        print("Fast mode selected [APGD-T only]!")
+        adversary = AutoAttack(model, norm="Linf", eps=eps, version="custom", device=device, verbose=verbose)
+        adversary.attacks_to_run = ["apgd-t"]
 
     elif mode == "untargeted":
         print("Untargeted mode selected [APGD-CE, SQUARE]!")
