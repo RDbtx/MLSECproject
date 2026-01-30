@@ -14,7 +14,6 @@ robust_bench_models = {
 }
 
 if __name__ == "__main__":
-
     # main AutoAttack analysis
     compute_autoattacks(
         models=robust_bench_models,
@@ -22,6 +21,7 @@ if __name__ == "__main__":
         seeds=0,
         batch_size=50,
         mode="fast targeted",
+        steps=[1, 4, 8, 12, 16],
         out_file_name="targeted_results"
     )
 

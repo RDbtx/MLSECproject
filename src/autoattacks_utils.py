@@ -67,7 +67,7 @@ def robust_acc_autoattack(model, x, y, eps: float, device: str, mode: str = "sta
 
 
 def autoattack_models(models: dict, x_test_cpu, y_test_cpu, batch_size: int, mode: str = "standard",
-                      verbose: bool = True) -> dict:
+                      steps: list = None, verbose: bool = True) -> dict:
     """
     Run AutoAttack over multiple models and multiple epsilon values.
     The function evaluates each model in `models` across a fixed set of Linf
@@ -100,7 +100,9 @@ def autoattack_models(models: dict, x_test_cpu, y_test_cpu, batch_size: int, mod
     print("\n---- STARTING AUTOATTACK ----")
     results = {}
 
-    steps = [1, 4, 8, 12, 16]
+    if steps is None:
+        steps = [1, 4, 8, 12, 16]
+
     eps_list = [e / 255 for e in steps]
 
     for step, eps in zip(steps, eps_list):
@@ -154,7 +156,7 @@ def autoattack_models(models: dict, x_test_cpu, y_test_cpu, batch_size: int, mod
 
 
 def compute_autoattacks(models: dict, samples: int = 200, seeds: int = 0, batch_size: int = 50, mode: str = "standard",
-                        verbose: bool = True, out_file_name: str = "results") -> dict:
+                        steps: list = None, verbose: bool = True, out_file_name: str = "results") -> dict:
     """
     Wrapper for computing AutoAttack over the selected models and saving results.
     This function loads the models and a subset of tje CIFAR-10 dataset. Runs Auto attack
@@ -184,6 +186,7 @@ def compute_autoattacks(models: dict, samples: int = 200, seeds: int = 0, batch_
         y_test_cpu=y_test,
         batch_size=batch_size,
         mode=mode,
+        steps=steps,
         verbose=verbose
     )
 
